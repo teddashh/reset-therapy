@@ -8,6 +8,8 @@ A visual therapy device for people who live inside AI quota limits.
 
 **Play:** https://teddashh.github.io/reset-therapy/play/
 
+**With shared counters:** https://www.ted-h.com/reset-therapy (the same toy, running the optional stats module)
+
 Four painstakingly faked usage panels (ChatGPT / Codex, Claude, Gemini, Grok) sit there burning your quota in real time. The numbers climb. The reset day never comes. Here, you do not wait until Monday: you press the button, the chained golden dragon breaks free, the bars refill, world peace.
 
 ![Reset Therapy in a desktop browser, before any reset](docs/screenshot-desktop.png)
@@ -31,7 +33,7 @@ Play it at <https://teddashh.github.io/reset-therapy/play/> (Chinese: <https://t
 
 To run your own copy, open `index.html` in a browser. That is the whole app. Any static host works. Language: `?lang=zh` / `?lang=en`, or the switcher in the top-right corner.
 
-Without a backend the page still fully works: it falls back to the deterministic baseline plus your own local counts. That is what happens on GitHub Pages.
+Without a backend the page still fully works: it falls back to the deterministic baseline plus your own local counts. That is what happens on GitHub Pages. The copy on [ted-h.com](https://www.ted-h.com/reset-therapy) runs the stats module below, so its leaderboard counts presses from every visitor.
 
 ## Optional backend: shared global counters
 

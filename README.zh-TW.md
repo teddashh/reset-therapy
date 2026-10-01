@@ -8,6 +8,8 @@
 
 **線上玩：** https://teddashh.github.io/reset-therapy/play/?lang=zh
 
+**全站共用次數版：** https://www.ted-h.com/zh_TW/reset-therapy（同一個玩具，掛上選配的統計模組）
+
 四個精心仿造的用量面板（ChatGPT / Codex、Claude、Gemini、Grok）就在你眼前即時燃燒額度。數字一直爬，重置日永遠等不到。在這裡不用等星期一：按下按鈕，被鎖鏈綁住的黃金龍掙脫，額度條回滿，世界和平。
 
 ![Reset Therapy 桌面版畫面，還沒重置](docs/screenshot-desktop.png)
@@ -31,7 +33,7 @@
 
 想自己跑一份，用瀏覽器打開 `index.html` 就是全部了。任何靜態主機都能放。語言用 `?lang=zh` / `?lang=en`，或右上角的切換按鈕。
 
-沒有後端也完全能玩：只是改用基準值加上你本機的次數。放在 GitHub Pages 上就是這種情況。
+沒有後端也完全能玩：只是改用基準值加上你本機的次數。放在 GitHub Pages 上就是這種情況。[ted-h.com 上的版本](https://www.ted-h.com/zh_TW/reset-therapy)掛著下面的統計模組，排行榜會累計所有訪客的次數。
 
 ## 選配後端：全站共用的次數
 
