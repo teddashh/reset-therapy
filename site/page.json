@@ -5,7 +5,7 @@
   "mark": "RT",
   "palette": "lime",
   "default_branch": "main",
-  "verified": "2026-09-30",
+  "verified": "2026-10-01",
   "language": "HTML",
   "license": {
     "spdx": "MIT",
@@ -252,8 +252,8 @@
       "zh": "目前的樣子。"
     },
     "intro": {
-      "en": "Version 8, published as a single commit in July 2026. No tests and no releases: it is a finished joke, not a product.",
-      "zh": "第 8 版，2026 年 7 月以單一 commit 發佈。沒有測試，也沒有 release：這是一個完成的玩笑，不是產品。"
+      "en": "Version 8, first published in July 2026. The stats module has 32 plain-Python tests that run in CI, and there are no releases: it is a finished joke, not a product.",
+      "zh": "第 8 版，2026 年 7 月首次發佈。統計模組有 32 個純 Python 測試，會在 CI 上執行；沒有 release：這是一個完成的玩笑，不是產品。"
     },
     "works": [
       {
@@ -287,8 +287,8 @@
         "zh": "排行榜的數字大部分是假的基準值，額度面板也只是動畫，不是真實資料"
       },
       {
-        "en": "The stats API is public, with no authentication or rate limit, so anyone can add presses",
-        "zh": "統計 API 是公開的，沒有驗證也沒有速率限制，任何人都能直接加次數"
+        "en": "The stats API is public, with no authentication. Each address can press at most 30 times a minute, which slows scripted pressing but cannot stop someone with many addresses",
+        "zh": "統計 API 是公開的，沒有驗證。每個來源位址每分鐘最多 30 次，可以減緩用腳本狂按，但擋不住手上有很多位址的人"
       },
       {
         "en": "Redrawing the dragons needs an OpenAI API key and a placeholder template the repo does not include",
@@ -350,7 +350,7 @@
         "en": "Verified",
         "zh": "查核日期"
       },
-      "value": "2026-09-30"
+      "value": "2026-10-01"
     }
   ],
   "links": [
