@@ -961,7 +961,14 @@ footer a { color:inherit; }
     { key: 'gemini', name: 'Gemini', color: '#1a73e8', w: 0.20 },
     { key: 'grok', name: 'Grok', color: '#5f6cff', w: 0.16 }
   ];
-  var WEEK_MS = 604800000;
+  /* weeks are the server's: they start Monday 00:00 at a fixed UTC+8
+     (Asia/Taipei), whatever the visitor's own time zone */
+  var DAY_MS = 86400000, WEEK_MS = 7 * DAY_MS, TZ_MS = 8 * 3600000;
+  var LAUNCH = Date.UTC(2026, 6, 20) - TZ_MS;  /* 2026-07-20 00:00 UTC+8 */
+  function weekStart(t) {
+    var day = Math.floor((t + TZ_MS) / DAY_MS);     /* UTC+8 day number; day 0 was a Thursday */
+    return (day - (day + 3) % 7) * DAY_MS - TZ_MS;  /* that week's Monday 00:00 UTC+8 */
+  }
   function hashFrac(s) {
     var h = 2166136261;
     for (var i = 0; i < s.length; i++) { h = (h ^ s.charCodeAt(i)) * 16777619 >>> 0; }
@@ -1012,15 +1019,13 @@ footer a { color:inherit; }
       .catch(function () { /* offline: local numbers still work */ });
   }
   function calcStats() {
-    var ws = new Date(now.getTime());
-    ws.setDate(ws.getDate() - ((ws.getDay() + 6) % 7));
-    ws.setHours(0, 0, 0, 0);
-    var weekFrac = Math.min(1, (now - ws.getTime()) / WEEK_MS);
-    var weekIdx = Math.floor(ws.getTime() / WEEK_MS);
-    var launch = new Date(2026, 6, 20).getTime();
-    var days = Math.max(0, (now.getTime() - launch) / 86400000);
+    var t = Date.now();  /* not the page-load time: a page left open rolls over with the server */
+    var ws = weekStart(t);
+    var weekFrac = (t - ws) / WEEK_MS;
+    var seed = Math.floor(ws / WEEK_MS);  /* per-week wobble seed */
+    var days = Math.max(0, (t - LAUNCH) / DAY_MS);
     var rows = PROV.map(function (p) {
-      var wob = 0.9 + 0.2 * hashFrac(p.key + weekIdx);
+      var wob = 0.9 + 0.2 * hashFrac(p.key + seed);
       var realW = SRV ? (SRV.week[p.key] || 0) : (counts[p.key] || 0);
       var realA = SRV ? (SRV.all[p.key] || 0) : (counts[p.key] || 0);
       var weekly = Math.floor(912 * p.w * weekFrac * wob) + realW;

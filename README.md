@@ -22,6 +22,7 @@ Four painstakingly faked usage panels (ChatGPT / Codex, Claude, Gemini, Grok) si
 - Once all four are reset, "Burned out again..." puts everyone back in chains.
 - A Weekly Therapy Leaderboard appears after your first reset. The provider columns are ordered by this week's rank.
 - Leaderboard numbers are a deterministic fake baseline, computed from the current date and time, plus real presses: from the optional API when the page can reach it, otherwise from this browser.
+- "This week" is the same for every visitor, wherever they are: Monday 00:00 to Sunday 23:59 Taipei time (UTC+8), the same weeks the API counts in.
 - Your own heal count is kept in localStorage.
 - Bilingual: English and Traditional Chinese (台灣正體), with a language switcher.
 - Respects prefers-reduced-motion: no animations, confetti, or screen flash.
@@ -48,9 +49,20 @@ GET  /reset-therapy/api/stats
 POST /reset-therapy/api/heal
      {"providers": ["claude", "gemini"]}
      -> fresh stats payload (each listed provider +1 this week)
+     -> 400 {"error": "..."} when the body is malformed
+     -> 429 {"error": "rate limited"} plus Retry-After when over the limit
 ```
 
-`server/reset_therapy_stats/` is a reference implementation: an Odoo 19 module that stores the counters in a single SQLite file in Odoo's data directory (one row per provider per week, Monday-start weeks at a fixed UTC+8, Asia/Taipei). The heal endpoint rejects bodies over 4 KB and ignores unknown providers. Both endpoints are public, with no authentication or rate limit. Any small server in any framework can implement the same contract.
+`server/reset_therapy_stats/` is a reference implementation: an Odoo 19 module that stores the counters in a single SQLite file in Odoo's data directory (one row per provider per week, Monday-start weeks at a fixed UTC+8, Asia/Taipei). Both endpoints are public, with no authentication. Any small server in any framework can implement the same contract.
+
+The heal endpoint protects itself:
+
+- **400 for malformed input.** The body must be at most 4 KB of UTF-8 JSON: an object whose `providers` is a list of strings naming at least one known provider. Anything else (broken JSON, the wrong shape, an oversized body) gets 400 with a short message such as `{"error": "bad json"}`. Unknown names are ignored and a provider listed twice counts once, so one request adds at most 1 per provider (4 in total).
+- **429 over the rate limit.** Each client gets 30 accepted heal requests in any 60 seconds. Past that, the answer is 429 `{"error": "rate limited"}` with a `Retry-After` header in seconds, and nothing is counted. Refused requests do not count toward the 30. The page simply ignores a refused heal.
+- **Who counts as a client.** The `CF-Connecting-IP` header if present, else the first `X-Forwarded-For` entry, else the connection's own address. IPv6 addresses are grouped per /64. These headers are trusted as sent, so only expose the server through Cloudflare or your reverse proxy.
+- **Shared by all workers.** The limiter keeps its state in the same SQLite file (a hash of the client address plus a timestamp; rows older than a minute are deleted on the next heal), so the limit holds across Odoo's worker processes.
+
+The stats endpoint has no limit. The module's logic is plain Python in `core.py`, and its unit tests need no Odoo: `python3 -m unittest discover -s server/tests -v` (they also run on every pull request).
 
 ## Art pipeline
 
@@ -74,7 +86,9 @@ python3 drg_post.py                            # crop, WebP, inject into ../inde
 index.html                    the toy, self-contained
 site/                         project page (GitHub Pages)
 .github/workflows/pages.yml   deploys site/ plus the toy at play/
+.github/workflows/tests.yml   runs the unit tests
 server/reset_therapy_stats/   optional Odoo 19 stats module (LGPL-3)
+server/tests/                 unit tests for the module's core (plain Python)
 art/                          dragon art scripts and the four WebP files
 docs/                         screenshots
 ```

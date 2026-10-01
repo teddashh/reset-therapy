@@ -22,6 +22,7 @@
 - 四家都重置之後，按「哭啊, 又全部燒光了」就全部鎖回去。
 - 第一次重置後會出現本週療癒排行榜，四家的欄位照本週名次排列。
 - 排行榜的數字是用固定公式、依目前日期與時間算出來的假基準值，再加上真實的重置次數：連得到選配 API 時用全站的次數，連不到就用這個瀏覽器的次數。
+- 「本週」對每個訪客都一樣，不管人在哪裡：以台北時間（UTC+8）週一 00:00 到週日 23:59 為一週，跟 API 計算的週完全一致。
 - 你自己的療癒次數存在 localStorage。
 - 雙語：English 與台灣正體，右上角可以切換。
 - 支援 prefers-reduced-motion：系統開啟「減少動態效果」時，不播動畫、彩帶和閃屏。
@@ -48,9 +49,20 @@ GET  /reset-therapy/api/stats
 POST /reset-therapy/api/heal
      {"providers": ["claude", "gemini"]}
      -> fresh stats payload (each listed provider +1 this week)
+     -> 400 {"error": "..."} when the body is malformed
+     -> 429 {"error": "rate limited"} plus Retry-After when over the limit
 ```
 
-`server/reset_therapy_stats/` 是參考實作：一個 Odoo 19 模組，把次數存在 Odoo 資料目錄裡的一個 SQLite 檔（每家每週一列，週一起算，固定用 UTC+8 台北時間）。heal 端點會拒收超過 4 KB 的內容，也會忽略不認得的服務名稱。兩個端點都是公開的，沒有驗證也沒有速率限制。用任何框架寫個小伺服器，都能實作同樣的介面。
+`server/reset_therapy_stats/` 是參考實作：一個 Odoo 19 模組，把次數存在 Odoo 資料目錄裡的一個 SQLite 檔（每家每週一列，週一起算，固定用 UTC+8 台北時間）。兩個端點都是公開的，不需要驗證。用任何框架寫個小伺服器，都能實作同樣的介面。
+
+heal 端點有自己的防護：
+
+- **格式不對就回 400。** 內容必須是不超過 4 KB 的 UTF-8 JSON：一個物件，其中 `providers` 是字串清單，而且至少要有一個認得的服務名稱。其他情況（JSON 壞掉、結構不對、內容太大）一律回 400，附上一段簡短訊息，例如 `{"error": "bad json"}`。不認得的名稱會被忽略，同一家列兩次也只算一次，所以一個請求每家最多 +1（合計最多 4）。
+- **超過速率限制就回 429。** 每個用戶端在任何 60 秒內，最多有 30 個 heal 請求會被接受。超過就回 429 `{"error": "rate limited"}`，附上以秒為單位的 `Retry-After` 標頭，而且什麼都不會計入。被拒絕的請求不算在這 30 次裡。頁面遇到被拒絕的 heal 會直接略過。
+- **怎麼認定用戶端。** 有 `CF-Connecting-IP` 標頭就用它，沒有就用 `X-Forwarded-For` 的第一個位址，再沒有就用連線本身的位址。IPv6 位址以 /64 為一組。這些標頭會直接採信，所以伺服器只能透過 Cloudflare 或你的反向代理對外開放。
+- **所有 worker 共用。** 速率限制的狀態存在同一個 SQLite 檔裡（用戶端位址的雜湊值加上時間戳記，超過一分鐘的紀錄會在下一次 heal 時刪掉），所以 Odoo 開多個 worker 行程時，限制一樣有效。
+
+stats 端點沒有限制。模組的邏輯寫在純 Python 的 `core.py`，單元測試不需要 Odoo：`python3 -m unittest discover -s server/tests -v`（每個 pull request 也會自動跑）。
 
 ## 美術流程
 
@@ -74,7 +86,9 @@ python3 drg_post.py                            # 裁切、轉 WebP、寫進 ../i
 index.html                    玩具本體，自包含
 site/                         專案介紹頁（GitHub Pages）
 .github/workflows/pages.yml   部署 site/，並把玩具放在 play/
+.github/workflows/tests.yml   執行單元測試
 server/reset_therapy_stats/   選配的 Odoo 19 統計模組（LGPL-3）
+server/tests/                 模組核心的單元測試（純 Python）
 art/                          龍的美術腳本與四張 WebP
 docs/                         截圖
 ```
