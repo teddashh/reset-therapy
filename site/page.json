@@ -1,0 +1,396 @@
+{
+  "repo": "teddashh/reset-therapy",
+  "slug": "reset-therapy",
+  "name": "Reset Therapy",
+  "mark": "RT",
+  "palette": "lime",
+  "default_branch": "main",
+  "verified": "2026-09-30",
+  "language": "HTML",
+  "license": {
+    "spdx": "MIT",
+    "label": {
+      "en": "MIT License",
+      "zh": "MIT 授權"
+    },
+    "href": "LICENSE"
+  },
+  "title": {
+    "en": "A parody toy where AI quota resets always work",
+    "zh": "AI 額度永遠能重置的惡搞小玩具"
+  },
+  "description": {
+    "en": "A one-file browser toy: four mock AI usage panels burn quota in real time, and pressing reset frees a chained golden dragon. Play it on GitHub Pages; an optional Odoo module adds shared counts.",
+    "zh": "單一 HTML 檔的瀏覽器小玩具：四個仿造的 AI 用量面板即時燒額度，按下重置就能放出被鎖鏈綁住的黃金龍。可以直接在 GitHub Pages 上玩，選配的 Odoo 模組能讓訪客共用次數。"
+  },
+  "hero": {
+    "eyebrow": {
+      "en": "Parody browser toy · One HTML file",
+      "zh": "惡搞瀏覽器小玩具 · 單一 HTML 檔"
+    },
+    "headline": {
+      "en": "In here, reset <em>always</em> works.",
+      "zh": "這裡的重置<em>永遠</em>有效。"
+    },
+    "lede": {
+      "en": "Four mock usage panels (Codex, Claude, Gemini, Grok) burn quota while you watch. Press reset and the bars refill, the chains snap, and a golden dragon breaks free. A joke for people who live inside AI quota limits.",
+      "zh": "四個仿造的用量面板（Codex、Claude、Gemini、Grok）就在你眼前燒額度。按下重置，額度回滿、鎖鏈斷開，黃金龍重獲自由。獻給活在 AI 額度上限裡的人。"
+    },
+    "primary": {
+      "href": {
+        "en": "./play/",
+        "zh": "./play/?lang=zh"
+      },
+      "label": {
+        "en": "Play",
+        "zh": "開始玩"
+      }
+    },
+    "secondary": {
+      "href": "https://github.com/teddashh/reset-therapy",
+      "label": {
+        "en": "View the source",
+        "zh": "查看原始碼"
+      }
+    },
+    "notes": [
+      "MIT",
+      {
+        "en": "No build step",
+        "zh": "不用建置"
+      },
+      "English · 中文"
+    ],
+    "visual": {
+      "type": "image",
+      "src": "docs/screenshot-desktop.png",
+      "alt": {
+        "en": "Reset Therapy in a desktop browser, English interface: four chained golden dragons with reset buttons above mock usage panels for Claude, Codex, Gemini, and Grok, all marked burning",
+        "zh": "Reset Therapy 桌面版英文介面：四條被鎖鏈綁住的黃金龍和各自的重置鈕，下方是 Claude、Codex、Gemini、Grok 的仿造用量面板，狀態都是燃燒中"
+      },
+      "caption": {
+        "en": "Before any reset: all four providers are burning.",
+        "zh": "還沒重置：四家都在燃燒中。"
+      }
+    }
+  },
+  "capabilities": {
+    "kicker": {
+      "en": "What it does",
+      "zh": "功能"
+    },
+    "title": {
+      "en": "Burn, reset, repeat.",
+      "zh": "燒光、重置、再來一次。"
+    },
+    "intro": {
+      "en": "It all runs in the browser. Nothing reads a real account, and nothing resets a real quota.",
+      "zh": "全部在瀏覽器裡執行，不讀任何真實帳號，也不會重置任何真實額度。"
+    },
+    "items": [
+      {
+        "title": {
+          "en": "Quotas that keep burning",
+          "zh": "一直在燒的額度"
+        },
+        "body": {
+          "en": "Mock usage pages modeled on the ChatGPT, Claude, Gemini, and Grok settings screens. Until you reset a provider, its numbers creep up every 0.9 seconds and stop just short of the limit.",
+          "zh": "仿照 ChatGPT、Claude、Gemini、Grok 設定畫面做的用量頁。還沒重置的那幾家，數字每 0.9 秒往上爬一點，一路爬到快滿才停。"
+        },
+        "tag": "900 ms tick"
+      },
+      {
+        "title": {
+          "en": "A reset that always works",
+          "zh": "永遠有效的重置"
+        },
+        "body": {
+          "en": "Each provider has its own reset button (clicking the dragon works too), or press <strong>Reset all four</strong>. The chains break with a clank and confetti, the bars reset, and the freed dragon gets a comic bubble. Once all four are free, <strong>Burned out again...</strong> starts it over.",
+          "zh": "每家都有自己的重置鈕（直接點龍也可以），或是按<strong>全部重置吧</strong>一次救四家。鎖鏈噹啷斷開、彩帶噴出、用量歸零，重獲自由的龍會冒出漫畫對話框。四家都救回來之後，按<strong>哭啊, 又全部燒光了</strong>就一切重來。"
+        },
+        "tag": "Web Audio · canvas"
+      },
+      {
+        "title": {
+          "en": "A leaderboard that is mostly theatre",
+          "zh": "大半是演出來的排行榜"
+        },
+        "body": {
+          "en": "After your first reset, a Weekly Therapy Leaderboard appears. Its numbers are a fake baseline computed from the date plus real presses: from the optional stats API when the page can reach it, otherwise from this browser's localStorage.",
+          "zh": "第一次重置之後，會出現本週療癒排行榜。上面的數字是依日期算出來的假基準值，加上真實的重置次數：連得到選配的統計 API 就用全站累計，連不到就用這個瀏覽器 localStorage 裡的次數。"
+        },
+        "tag": "localStorage · rtCounts"
+      }
+    ]
+  },
+  "showcase": {
+    "kicker": {
+      "en": "Screens",
+      "zh": "畫面"
+    },
+    "title": {
+      "en": "The Chinese version, on a phone.",
+      "zh": "手機上的中文版。"
+    },
+    "intro": {
+      "en": "Captured at phone width with ?lang=zh. The layout drops to one column and the interface text switches to Traditional Chinese (the dragons' comic bubbles stay in English).",
+      "zh": "用手機寬度加上 ?lang=zh 擷取：版面收成單欄，介面文字換成繁體中文（龍的漫畫對話框維持英文）。"
+    },
+    "shots": [
+      {
+        "src": "docs/screenshot-mobile.png",
+        "alt": {
+          "en": "Chinese interface on a phone: Claude's dragon in chains next to its reset button, session usage at 76 percent, status burning",
+          "zh": "手機上的中文介面：Claude 的龍被鎖鏈綁住，旁邊是重置鈕，目前工作階段已使用 76%，狀態燃燒中"
+        },
+        "caption": {
+          "en": "Burning: the numbers keep climbing.",
+          "zh": "燃燒中：數字還在往上爬。"
+        }
+      },
+      {
+        "src": "docs/screenshot-mobile-reset-one.png",
+        "alt": {
+          "en": "After resetting Claude: the dragon is free with a comic bubble, usage back to 0 percent, and the status line reads 1 of 4 restored",
+          "zh": "重置 Claude 之後：龍掙脫鎖鏈並冒出漫畫對話框，用量回到 0%，狀態列顯示已復活 1/4 家"
+        },
+        "caption": {
+          "en": "One reset: the chains are gone and usage is back to 0%.",
+          "zh": "重置一家：鎖鏈不見了，用量回到 0%。"
+        }
+      },
+      {
+        "src": "docs/screenshot-mobile-reset-all.png",
+        "alt": {
+          "en": "After Reset all four: the status line reads quotas full and world peace, with a second button for burning out again",
+          "zh": "全部重置之後：狀態列顯示額度全滿、世界和平，旁邊多了一顆再燒光一次的按鈕"
+        },
+        "caption": {
+          "en": "All four: world peace, plus a button to burn out again.",
+          "zh": "四家全滿：世界和平，外加一顆再燒光一次的按鈕。"
+        }
+      }
+    ]
+  },
+  "quickstart": {
+    "kicker": {
+      "en": "Run it",
+      "zh": "執行"
+    },
+    "nav": {
+      "en": "Run it",
+      "zh": "執行"
+    },
+    "title": {
+      "en": "Play it, or host it.",
+      "zh": "線上直接玩，自己也能架。"
+    },
+    "intro": {
+      "en": "The toy is index.html and nothing else. The stats API and the art scripts are optional.",
+      "zh": "玩具本體就只有 index.html，統計 API 和美術腳本都是選配。"
+    },
+    "primary": {
+      "href": {
+        "en": "./play/",
+        "zh": "./play/?lang=zh"
+      },
+      "label": {
+        "en": "Play in the browser",
+        "zh": "在瀏覽器裡玩"
+      }
+    },
+    "secondary": {
+      "href": "https://github.com/teddashh/reset-therapy/tree/main/server/reset_therapy_stats",
+      "label": {
+        "en": "Stats API module",
+        "zh": "統計 API 模組"
+      }
+    },
+    "steps": [
+      {
+        "title": {
+          "en": "Play online, or open it locally",
+          "zh": "線上玩，或在本機打開"
+        },
+        "body": {
+          "en": "Play at <a href=\"./play/\">./play/</a> (Chinese: <a href=\"./play/?lang=zh\">./play/?lang=zh</a>). For your own copy, clone <a href=\"https://github.com/teddashh/reset-therapy\">the repository</a> and open index.html, or serve the folder and open http://localhost:8000/.",
+          "zh": "線上版在 <a href=\"./play/?lang=zh\">./play/?lang=zh</a>。想自己跑一份，就把 <a href=\"https://github.com/teddashh/reset-therapy\">這個 repo</a> clone 下來，直接用瀏覽器打開 index.html，或用下面的指令架起來，再打開 http://localhost:8000/。"
+        },
+        "code": "cd reset-therapy\npython3 -m http.server 8000"
+      },
+      {
+        "title": {
+          "en": "Optional: shared counters",
+          "zh": "選配：全站共用的次數"
+        },
+        "body": {
+          "en": "Without a backend the page uses local counts. To share counts across visitors, serve these two endpoints on the same origin. <code>server/reset_therapy_stats/</code> is an Odoo 19 module that does this with one SQLite file, one row per provider per week.",
+          "zh": "沒有後端時，頁面用的是本機次數。想讓所有訪客看到同一份數字，就在同一個網域提供下面兩個端點。<code>server/reset_therapy_stats/</code> 是 Odoo 19 模組版的實作，次數存在一個 SQLite 檔，每家每週一列。"
+        },
+        "code": "GET  /reset-therapy/api/stats\nPOST /reset-therapy/api/heal\n{\"providers\": [\"claude\"]}"
+      },
+      {
+        "title": {
+          "en": "Optional: redraw the dragons",
+          "zh": "選配：重畫四條龍"
+        },
+        "body": {
+          "en": "<code>gen_dragons.py</code> asks gpt-image-2 for four golden dragon busts. <code>drg_post.py</code> (Pillow) crops them to 600x750 WebP and inlines them, but only into an index.html that still has <code>__DRG_*__</code> placeholders; the shipped file has the art baked in.",
+          "zh": "<code>gen_dragons.py</code> 呼叫 gpt-image-2 生成四張黃金龍半身像，<code>drg_post.py</code>（需要 Pillow）再把圖裁成 600x750 的 WebP 內嵌進去。不過它只能寫進還留著 <code>__DRG_*__</code> 預留標記的 index.html，repo 裡的版本已經把圖內嵌好了。"
+        },
+        "code": "cd art\nexport OPENAI_API_KEY=sk-...\npython3 gen_dragons.py\npython3 drg_post.py"
+      }
+    ]
+  },
+  "status": {
+    "kicker": {
+      "en": "Honest status",
+      "zh": "誠實的現況"
+    },
+    "title": {
+      "en": "Where it stands.",
+      "zh": "目前的樣子。"
+    },
+    "intro": {
+      "en": "Version 8, published as a single commit in July 2026. No tests and no releases: it is a finished joke, not a product.",
+      "zh": "第 8 版，2026 年 7 月以單一 commit 發佈。沒有測試，也沒有 release：這是一個完成的玩笑，不是產品。"
+    },
+    "works": [
+      {
+        "en": "Runs from disk or any static host, including this GitHub Pages site",
+        "zh": "直接開檔或放在任何靜態主機都能跑，包括這個 GitHub Pages 網站"
+      },
+      {
+        "en": "Per-provider and reset-all buttons, clickable dragons, comic bubbles, confetti, and Web Audio sound effects",
+        "zh": "單家重置、全部重置、可以點的龍、漫畫對話框、彩帶與 Web Audio 音效"
+      },
+      {
+        "en": "English and Traditional Chinese, via ?lang=zh or the switcher in the corner",
+        "zh": "英文與繁體中文，用 ?lang=zh 或右上角的按鈕切換"
+      },
+      {
+        "en": "With prefers-reduced-motion set, animations, confetti, and the screen flash are turned off",
+        "zh": "系統開啟「減少動態效果」時，動畫、彩帶和閃屏都會關掉"
+      },
+      {
+        "en": "Optional Odoo 19 module for shared weekly and all-time counts",
+        "zh": "選配的 Odoo 19 模組，提供全站共用的每週與累計次數"
+      }
+    ],
+    "limits": [
+      {
+        "en": "GitHub Pages has no stats API, so the leaderboard here shows the baseline plus your own presses. The copy on <a href=\"https://www.ted-h.com/reset-therapy\">ted-h.com</a> runs the stats module and counts presses from every visitor",
+        "zh": "GitHub Pages 上沒有統計 API，所以這裡的排行榜只有基準值加上你自己的次數。<a href=\"https://www.ted-h.com/zh_TW/reset-therapy\">ted-h.com 上的版本</a>掛著統計模組，會累計所有訪客的次數"
+      },
+      {
+        "en": "Leaderboard numbers are mostly a fake baseline, and the quota panels are animation, not data",
+        "zh": "排行榜的數字大部分是假的基準值，額度面板也只是動畫，不是真實資料"
+      },
+      {
+        "en": "The stats API is public, with no authentication or rate limit, so anyone can add presses",
+        "zh": "統計 API 是公開的，沒有驗證也沒有速率限制，任何人都能直接加次數"
+      },
+      {
+        "en": "Redrawing the dragons needs an OpenAI API key and a placeholder template the repo does not include",
+        "zh": "重畫龍需要 OpenAI API 金鑰，還要自備 repo 沒附的預留標記範本"
+      },
+      {
+        "en": "A parody: the panels imitate real settings pages for the joke, and the project is not affiliated with OpenAI, Anthropic, Google, or xAI",
+        "zh": "這是惡搞作品：面板模仿真實設定頁只是為了好笑，本專案與 OpenAI、Anthropic、Google、xAI 都沒有關係"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "label": {
+        "en": "Version",
+        "zh": "版本"
+      },
+      "value": {
+        "en": "v8 (July 2026)",
+        "zh": "v8（2026 年 7 月）"
+      }
+    },
+    {
+      "label": {
+        "en": "Toy",
+        "zh": "玩具本體"
+      },
+      "value": {
+        "en": "index.html, 558 KB",
+        "zh": "index.html，558 KB"
+      }
+    },
+    {
+      "label": {
+        "en": "Stack",
+        "zh": "技術"
+      },
+      "value": "HTML · CSS · JS"
+    },
+    {
+      "label": {
+        "en": "Optional API",
+        "zh": "選配 API"
+      },
+      "value": "Odoo 19 · SQLite"
+    },
+    {
+      "label": {
+        "en": "License",
+        "zh": "授權"
+      },
+      "value": {
+        "en": "MIT; LGPLv3 for server/",
+        "zh": "MIT；server/ 為 LGPLv3"
+      }
+    },
+    {
+      "label": {
+        "en": "Verified",
+        "zh": "查核日期"
+      },
+      "value": "2026-09-30"
+    }
+  ],
+  "links": [
+    {
+      "href": {
+        "en": "./play/",
+        "zh": "./play/?lang=zh"
+      },
+      "label": {
+        "en": "Play",
+        "zh": "開始玩"
+      }
+    },
+    {
+      "href": {
+        "en": "https://www.ted-h.com/reset-therapy",
+        "zh": "https://www.ted-h.com/zh_TW/reset-therapy"
+      },
+      "label": {
+        "en": "Shared leaderboard",
+        "zh": "全站排行榜版"
+      }
+    },
+    {
+      "href": "https://github.com/teddashh/reset-therapy/blob/main/README.zh-TW.md",
+      "label": {
+        "en": "中文 README",
+        "zh": "中文 README"
+      }
+    }
+  ],
+  "pages_extra": {
+    "paths": [
+      "index.html"
+    ],
+    "copy": [
+      [
+        "index.html",
+        "play/index.html"
+      ]
+    ]
+  }
+}
