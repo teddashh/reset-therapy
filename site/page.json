@@ -103,7 +103,7 @@
         },
         "body": {
           "en": "Each provider has its own reset button (clicking the dragon works too), or press <strong>Reset all four</strong>. The chains break with a clank and confetti, the bars reset, and the freed dragon gets a comic bubble. Once all four are free, <strong>Burned out again...</strong> starts it over.",
-          "zh": "每家都有自己的重置鈕（直接點龍也可以），或是按<strong>全部重置吧</strong>一次救四家。鎖鏈噹啷斷開、彩帶噴出、用量歸零，重獲自由的龍會冒出漫畫對話框。四家都救回來之後，還有一顆「又全部燒光了」的按鈕讓一切重來。"
+          "zh": "每家都有自己的重置鈕（直接點龍也可以），或是按<strong>全部重置吧</strong>一次救四家。鎖鏈噹啷斷開、彩帶噴出、用量歸零，重獲自由的龍會冒出漫畫對話框。四家都救回來之後，按<strong>哭啊, 又全部燒光了</strong>就一切重來。"
         },
         "tag": "Web Audio · canvas"
       },

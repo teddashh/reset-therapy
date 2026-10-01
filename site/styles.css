@@ -1122,6 +1122,9 @@ h2.lang-zh {
   align-items: start;
 }
 
+/* let long code lines scroll inside their block instead of widening the grid */
+.qs-grid > * { min-width: 0; }
+
 .dark-band h2 { margin-bottom: 24px; }
 
 .dark-band p { color: color-mix(in srgb, #ffffff 64%, transparent); }
@@ -1141,6 +1144,7 @@ h2.lang-zh {
 
 .steps {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 12px;
   counter-reset: setup;
 }
