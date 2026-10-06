@@ -396,15 +396,15 @@
   "flows": [
     {
       "id": "burn-cycle",
-      "after": "features",
       "heading": {
-        "en": "The climb and the relapse",
-        "zh": "爬升，然後再燒"
+        "en": "It burns all over again",
+        "zh": "爬滿了還能再燒"
       },
       "intro": {
-        "en": "The panels are animation. A reset here refills them, and the relapse button starts the climb again.",
-        "zh": "面板上的數字是動畫。在這裡按下重置會把額度補滿，再燒一次的按鈕會讓數字重新往上爬。"
+        "en": "The panels are a drawing, not a real account. After all four resets, Burned out again... brings the burn back.",
+        "zh": "面板是畫出來的，不是真的帳號。四家都重置以後，按「哭啊，又全部燒光了」，燒就回來了。"
       },
+      "after": "features",
       "spec": {
         "columns": [
           [
@@ -423,36 +423,36 @@
       "steps": [
         {
           "title": {
-            "en": "Quota climbs",
-            "zh": "額度往上爬"
+            "en": "Numbers climb",
+            "zh": "數字往上爬"
           },
           "note": {
-            "en": "Every 0.9 seconds, a provider that is not reset moves toward its cap, then stops just short.",
-            "zh": "還沒重置的那一家，數字每 0.9 秒往上爬，快到上限就停。"
+            "en": "Every 0.9 seconds, a provider you have not reset moves up and stops at its own cap.",
+            "zh": "還沒重置的那一家，每 0.9 秒往上走，碰到它自己的上限就停。"
           },
           "tone": "neutral",
           "icon": "clock"
         },
         {
           "title": {
-            "en": "Press reset",
-            "zh": "按下重置"
+            "en": "Hit reset",
+            "zh": "按下去就滿"
           },
           "note": {
-            "en": "The button or the dragon refills that panel, snaps the chains, and plays the clank.",
-            "zh": "按按鈕或點龍，面板回滿、鎖鏈斷開，並播放斷鏈的聲音。"
+            "en": "The provider button or the dragon refills that panel, snaps the chains, and plays a clank.",
+            "zh": "按那一家的按鈕，或點那隻龍，面板回滿、鎖鏈斷開，並發出斷開的聲音。"
           },
           "tone": "accent",
           "icon": "bolt"
         },
         {
           "title": {
-            "en": "Burn out again",
-            "zh": "再燒一次"
+            "en": "Burn them again",
+            "zh": "又燒回去"
           },
           "note": {
-            "en": "When all four are free, Burned out again... clears the resets and the numbers start climbing again.",
-            "zh": "四家都自由之後，按「哭啊, 又全部燒光了」會清掉重置，數字再從燃燒中開始爬。"
+            "en": "Once all four are reset, Burned out again... locks the chains back on, and the burning numbers climb again.",
+            "zh": "四家都重置之後，按「哭啊，又全部燒光了」會把鎖鏈鎖回去，燃燒中的數字再往上爬。"
           },
           "tone": "warn",
           "icon": "spark"
@@ -460,34 +460,34 @@
       ],
       "ticks": [
         {
-          "en": "climbs every 0.9 seconds",
-          "zh": "每 0.9 秒往上爬"
+          "en": "up every 0.9 seconds",
+          "zh": "每 0.9 秒往上"
         },
         {
-          "en": "reset refills the panel",
-          "zh": "重置後面板回滿"
+          "en": "reset snaps that dragon's chains",
+          "zh": "重置會打斷那隻龍的鎖鏈"
         },
         {
-          "en": "relapse restarts the climb",
-          "zh": "再燒就重新往上爬"
+          "en": "all four reset, then it burns",
+          "zh": "四家都重置才再燒"
         }
       ],
       "caption": {
-        "en": "Until you reset a provider, its mock usage numbers climb every 0.9 seconds and stop just short of the cap. Reset, from the button or the dragon, refills that panel and breaks its chains. After all four are free, Burned out again... clears them and the climb starts over. None of this reads a real account.",
-        "zh": "還沒重置的面板，仿造用量每 0.9 秒往上爬，快到上限就停。按重置鈕或點龍，會把那一家補滿並打斷鎖鏈。四家都自由之後，按「哭啊, 又全部燒光了」會清掉重置，數字重新往上爬。這些都不會讀取真實帳號。"
+        "en": "Burning again does not wipe your local tally. It only sends the gauges back up.",
+        "zh": "再燒一次不會清掉你留在本機的次數，只是讓儀表重新往上爬。"
       }
     },
     {
       "id": "count-home",
-      "after": "start",
       "heading": {
-        "en": "Where a reset is counted",
-        "zh": "重置次數記在哪"
+        "en": "Your presses stay local",
+        "zh": "你的次數在本機"
       },
       "intro": {
-        "en": "The browser always keeps your own count. A shared total exists only when the same origin serves the stats module.",
-        "zh": "瀏覽器一定會記下你自己的次數。只有同一個網域有掛統計模組時，才會有全站共用的總數。"
+        "en": "You only see the shared weekly count when the site itself has the stats module.",
+        "zh": "只有網站本身裝了統計模組，才看得到大家一起算的本週次數。"
       },
+      "after": "start",
       "spec": {
         "columns": [
           [
@@ -505,49 +505,49 @@
       },
       "zones": {
         "en": [
-          "This browser",
-          "Optional API",
-          "Shared ledger"
+          "This browser only",
+          "Optional request",
+          "Shared totals"
         ],
         "zh": [
-          "這個瀏覽器",
-          "選配 API",
-          "全站帳本"
+          "只有這台瀏覽器",
+          "選配的請求",
+          "全站的總數"
         ]
       },
       "steps": [
         {
           "title": {
-            "en": "Save locally",
-            "zh": "記在本機"
+            "en": "Keep it local",
+            "zh": "先記在本機"
           },
           "note": {
-            "en": "Each reset adds one to rtCounts in localStorage, on GitHub Pages and everywhere else.",
-            "zh": "每一次重置都會把 localStorage 裡的 rtCounts 加一，GitHub Pages 上也一樣。"
+            "en": "Every press is counted in this browser first.",
+            "zh": "你每按一次，都先記在這個瀏覽器裡。"
           },
           "tone": "neutral",
           "icon": "database"
         },
         {
           "title": {
-            "en": "Ask the API",
-            "zh": "詢問 API"
+            "en": "Ask this site",
+            "zh": "再問這個網站"
           },
           "note": {
-            "en": "The page POSTs /reset-therapy/api/heal on its own origin, and ignores the call if it fails.",
-            "zh": "頁面會對自己的網域 POST /reset-therapy/api/heal，失敗就當作沒這回事。"
+            "en": "The page then asks this same site for the shared count. If that fails, nothing changes.",
+            "zh": "頁面再跟這個網站要大家的次數。要不到的話，什麼都不改。"
           },
           "tone": "accent",
           "icon": "route"
         },
         {
           "title": {
-            "en": "Shared week",
-            "zh": "全站本週"
+            "en": "One shared week",
+            "zh": "改用全站本週"
           },
           "note": {
-            "en": "If the Odoo module answers, the board uses its Taipei week counts instead of this browser's.",
-            "zh": "若 Odoo 模組有回應，排行榜就改用它的台北週次數，不再用這台瀏覽器的數字。"
+            "en": "When the stats module answers, the board shows the Taipei week and the all-time total.",
+            "zh": "統計模組一有回應，排行榜就改看台北的本週和累計總數。"
           },
           "tone": "info",
           "icon": "ledger"
@@ -555,34 +555,34 @@
       ],
       "ticks": [
         {
-          "en": "localStorage always updates",
-          "zh": "本機次數一定會記"
+          "en": "the press lands in this browser",
+          "zh": "按下就先記在這台"
         },
         {
-          "en": "a failed API is ignored",
-          "zh": "API 失敗就略過"
+          "en": "silence keeps your own number",
+          "zh": "問不到就還是自己的"
         },
         {
-          "en": "ted-h.com shares the counts",
-          "zh": "ted-h.com 才共用次數"
+          "en": "an answer brings the shared week",
+          "zh": "有回應才換成大家的本週"
         }
       ],
       "caption": {
-        "en": "A reset always increments rtCounts in this browser's localStorage. The page then tries POST /reset-therapy/api/heal on the same origin. GitHub Pages has no such API, so the request fails and the leaderboard stays on the fake baseline plus your own presses. The copy on ted-h.com runs the Odoo module, and a successful answer replaces the local counts with the shared week and all-time totals. The baseline itself is still computed from the date.",
-        "zh": "每次重置都會增加這個瀏覽器 localStorage 裡的 rtCounts。頁面接著對同一個網域 POST /reset-therapy/api/heal。GitHub Pages 沒有這個 API，請求失敗，排行榜就維持日期算出來的假基準加上你自己的次數。ted-h.com 上的版本有跑 Odoo 模組，成功的回應會改用全站的本週與累計次數。基準值本身仍是依日期算出來的。"
+        "en": "On GitHub Pages the board is a starting number from the date, plus your own presses.",
+        "zh": "在 GitHub Pages 上，排行榜是依日期的起始數字，加上你自己按的次數。"
       }
     },
     {
       "id": "heal-limit",
-      "after": "status",
       "heading": {
-        "en": "The heal limit",
-        "zh": "療癒次數上限"
+        "en": "Extra heals get refused",
+        "zh": "超過就直接拒絕"
       },
       "intro": {
-        "en": "This path exists only in the optional stats module. The toy on GitHub Pages never reaches it.",
-        "zh": "這條路只存在於選配的統計模組。GitHub Pages 上的玩具走不到這裡。"
+        "en": "The limit lives in the optional stats module.",
+        "zh": "這個上限只在選配的統計模組裡。"
       },
+      "after": "status",
       "spec": {
         "columns": [
           [
@@ -593,10 +593,10 @@
           ],
           [
             2
+          ],
+          [
+            3
           ]
-        ],
-        "sinks": [
-          3
         ],
         "core": 2,
         "meter": true
@@ -604,48 +604,48 @@
       "steps": [
         {
           "title": {
-            "en": "Read the body",
-            "zh": "讀取內容"
+            "en": "Who you healed",
+            "zh": "剛剛重置誰"
           },
           "note": {
-            "en": "The module accepts at most 4 KB of UTF-8 JSON. Anything larger or malformed is a 400.",
-            "zh": "模組最多接受 4 KB 的 UTF-8 JSON。更大或格式不對就回 400。"
+            "en": "You tell it which ones you just reset.",
+            "zh": "你告訴它，剛剛重置的是哪幾家。"
           },
           "tone": "neutral",
           "icon": "doc"
         },
         {
           "title": {
-            "en": "Known names",
-            "zh": "已知名稱"
+            "en": "Four names only",
+            "zh": "只認四家"
           },
           "note": {
-            "en": "Only claude, codex, gemini, and grok count. Unknown names are dropped and a duplicate counts once.",
-            "zh": "只計算 claude、codex、gemini、grok。不認識的名稱會丟掉，重複的只算一次。"
+            "en": "Only the four names count, and a repeat of the same name still counts once.",
+            "zh": "會算進去的只有那四家。同一個名字就算送兩次，也只算一次。"
           },
           "tone": "neutral",
           "icon": "check"
         },
         {
           "title": {
-            "en": "Thirty per minute",
+            "en": "Thirty a minute",
             "zh": "一分鐘三十次"
           },
           "note": {
-            "en": "Each client may have 30 accepted heals in any 60 seconds. The count is shared by every Odoo worker.",
-            "zh": "每個客戶端在任意 60 秒內最多 30 次成功的療癒，所有 Odoo worker 共用這個上限。"
+            "en": "Each visitor gets 30 heals in a minute.",
+            "zh": "每位訪客一分鐘有 30 次。"
           },
           "tone": "accent",
           "icon": "shield"
         },
         {
           "title": {
-            "en": "Refuse the rest",
-            "zh": "其餘拒絕"
+            "en": "Turn the rest away",
+            "zh": "多的就拒"
           },
           "note": {
-            "en": "Past the limit the answer is 429 with Retry-After, and no weekly counter changes.",
-            "zh": "超過上限就回 429 並附上 Retry-After，本週的計數不會增加。"
+            "en": "Anything past that is turned away and never written down.",
+            "zh": "再多的直接擋下，一次都不會寫進去。"
           },
           "tone": "warn",
           "icon": "bell"
@@ -653,21 +653,21 @@
       ],
       "ticks": [
         {
-          "en": "30 accepted heals in 60 seconds",
-          "zh": "60 秒內最多 30 次"
+          "en": "only four names, once each",
+          "zh": "四家以外不算"
         },
         {
-          "en": "over the limit returns 429",
-          "zh": "超過就回 429"
+          "en": "a visitor gets thirty a minute",
+          "zh": "每人這一分鐘三十次"
         },
         {
-          "en": "a refusal is not counted",
-          "zh": "被拒的次數不入帳"
+          "en": "the rest are not saved",
+          "zh": "擋下的不會入帳"
         }
       ],
       "caption": {
-        "en": "In server/reset_therapy_stats/core.py, a heal body must be at most 4 KB of UTF-8 JSON whose providers list names claude, codex, gemini, or grok. Unknown names are ignored and duplicates count once, so one request adds at most one per provider. Each client, keyed from CF-Connecting-IP or the forwarding headers and stored as a hash, gets 30 accepted heals in any 60 seconds across Odoo workers. The 31st is a 429 with Retry-After and writes nothing. Accepted heals add one to that provider's Monday-start Taipei week row in SQLite. The public toy does not call this code.",
-        "zh": "在 server/reset_therapy_stats/core.py 裡，療癒請求的內容最多 4 KB，而且必須是 UTF-8 JSON，providers 裡要有 claude、codex、gemini 或 grok。不認識的名稱會忽略，重複的只算一次，所以一次請求每一家最多加 1。客戶端依 CF-Connecting-IP 或轉送標頭辨認，位址只存雜湊。任意 60 秒內最多 30 次成功，所有 Odoo worker 一起算。第 31 次回 429 並附上 Retry-After，什麼都不寫。成功的請求會在 SQLite 裡，把該家台北時間週一開始的那一週加 1。GitHub Pages 上的玩具不會呼叫這段程式。"
+        "en": "The ledger keeps a hash of the visitor's address, not the address itself.",
+        "zh": "帳本留的是訪客位址的雜湊，不是位址本身。"
       }
     }
   ]
