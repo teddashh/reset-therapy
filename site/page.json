@@ -398,8 +398,8 @@
       "id": "burn-cycle",
       "after": "features",
       "heading": {
-        "en": "Burn, reset, start over",
-        "zh": "燒光、重置、再來"
+        "en": "The climb and the relapse",
+        "zh": "爬升，然後再燒"
       },
       "intro": {
         "en": "The panels are animation. A reset here refills them, and the relapse button starts the climb again.",
@@ -451,8 +451,8 @@
             "zh": "再燒一次"
           },
           "note": {
-            "en": "When all four are free, that button clears the resets and the numbers start climbing again.",
-            "zh": "四家都自由之後，這顆按鈕會清掉重置，數字再從燃燒中開始爬。"
+            "en": "When all four are free, Burned out again... clears the resets and the numbers start climbing again.",
+            "zh": "四家都自由之後，按「哭啊, 又全部燒光了」會清掉重置，數字再從燃燒中開始爬。"
           },
           "tone": "warn",
           "icon": "spark"
@@ -473,8 +473,8 @@
         }
       ],
       "caption": {
-        "en": "Until you reset a provider, its mock usage numbers climb every 0.9 seconds and stop just short of the cap. Reset, from the button or the dragon, refills that panel and breaks its chains. After all four are free, Burned out again clears them and the climb starts over. None of this reads a real account.",
-        "zh": "還沒重置的面板，仿造用量每 0.9 秒往上爬，快到上限就停。按重置鈕或點龍，會把那一家補滿並打斷鎖鏈。四家都自由之後，再燒一次會清掉重置，數字重新往上爬。這些都不會讀取真實帳號。"
+        "en": "Until you reset a provider, its mock usage numbers climb every 0.9 seconds and stop just short of the cap. Reset, from the button or the dragon, refills that panel and breaks its chains. After all four are free, Burned out again... clears them and the climb starts over. None of this reads a real account.",
+        "zh": "還沒重置的面板，仿造用量每 0.9 秒往上爬，快到上限就停。按重置鈕或點龍，會把那一家補滿並打斷鎖鏈。四家都自由之後，按「哭啊, 又全部燒光了」會清掉重置，數字重新往上爬。這些都不會讀取真實帳號。"
       }
     },
     {
